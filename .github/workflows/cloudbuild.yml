@@ -1,8 +1,4 @@
 steps:
-  # Step 1: Check out the code
-  - name: "gcr.io/cloud-builders/git"
-    args: ["clone", "."]
-
   # Step 2: Set up Python 3.8
   - name: "python:3.8"
     entrypoint: "bash"
