@@ -10,7 +10,7 @@ steps:
         python --version
 
   # Step 2: Install dependencies, lint, and test
-  - name: "total step"
+  - name: "whole"
     entrypoint: "bash"
     args:
       - "-c"
