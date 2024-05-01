@@ -1,0 +1,29 @@
+steps:
+  # Step 1: Check out the code
+  - name: "gcr.io/cloud-builders/git"
+    args: ["clone", "."]
+
+  # Step 2: Set up Python 3.8
+  - name: "python:3.8"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - |
+        apt-get update && apt-get install -y python3.8
+        ln -s /usr/bin/python3.8 /usr/bin/python
+        python --version
+
+  # Step 3: Install dependencies
+  - name: "python:3.8"
+    entrypoint: "make"
+    args: ["install"]
+
+  # Step 4: Lint
+  - name: "python:3.8"
+    entrypoint: "make"
+    args: ["lint"]
+
+  # Step 5: Test
+  - name: "python:3.8"
+    entrypoint: "make"
+    args: ["test"]
