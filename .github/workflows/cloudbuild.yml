@@ -1,13 +1,13 @@
 steps:
-  # # Step 2: Set up Python 3.8
-  # - name: "python:3.8"
-  #   entrypoint: "bash"
-  #   args:
-  #     - "-c"
-  #     - |
-  #       apt-get update && apt-get install -y python3.8
-  #       ln -s /usr/bin/python3.8 /usr/bin/python
-  #       python --version
+  # Step 2: Set up Python 3.8
+  - name: "python:3.8"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - |
+        apt-get update && apt-get install -y python3.8
+        ln -s /usr/bin/python3.8 /usr/bin/python
+        python --version
 
   # Step 3: Install dependencies
   - name: "Install"
