@@ -1,5 +1,5 @@
 steps:
-  # Step 2: Set up Python 3.8
+  # Step 1: Set up Python 3.8
   - name: "python:3.8"
     entrypoint: "bash"
     args:
@@ -9,17 +9,12 @@ steps:
         ln -s /usr/bin/python3.8 /usr/bin/python
         python --version
 
-  # Step 3: Install dependencies
-  - name: "step2"
-    entrypoint: "make"
-    args: ["install-gcp"]
-
-  # Step 4: Lint
-  - name: "step3"
-    entrypoint: "make"
-    args: ["lint"]
-
-  # Step 5: Test
-  - name: "step4"
-    entrypoint: "make"
-    args: ["test"]
+  # Step 2: Install dependencies, lint, and test
+  - name: "total step"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - |
+        make install
+        make lint
+        make test
