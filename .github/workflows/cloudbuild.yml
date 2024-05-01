@@ -10,16 +10,16 @@ steps:
         python --version
 
   # Step 3: Install dependencies
-  - name: "Install"
+  - name: "step2"
     entrypoint: "make"
     args: ["install-gcp"]
 
   # Step 4: Lint
-  - name: "Linting"
+  - name: "step3"
     entrypoint: "make"
     args: ["lint"]
 
   # Step 5: Test
-  - name: "Testing"
+  - name: "step4"
     entrypoint: "make"
     args: ["test"]
