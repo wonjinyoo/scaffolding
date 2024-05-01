@@ -1,20 +1,18 @@
 steps:
-  # Step 1: Set up Python 3.8
+  # Phase: install
   - name: "python:3.8"
     entrypoint: "bash"
     args:
       - "-c"
       - |
-        apt-get update && apt-get install -y python3.8
-        ln -s /usr/bin/python3.8 /usr/bin/python
         python --version
 
-  # Step 2: Install dependencies, lint, and test
-  - name: "whole"
-    entrypoint: "bash"
-    args:
-      - "-c"
-      - |
-        make install
-        make lint
-        make test
+  # Phase: pre_build
+  - name: "gcr.io/cloud-builders/make"
+    args: ["install"]
+
+  # Phase: build
+  - name: "gcr.io/cloud-builders/make"
+    args: ["lint"]
+  - name: "gcr.io/cloud-builders/make"
+    args: ["test"]
