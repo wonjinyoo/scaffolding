@@ -1,4 +1,4 @@
-# scaffolding
+# Scaffolding test
  
 1) create `Makefile`
 
